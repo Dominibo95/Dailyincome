@@ -5,7 +5,7 @@
         int JobId { get; }
 
         //dodaje obiekt task do obiektu job 
-       // void AddTask();
+        void AddTask();
 
 
 
