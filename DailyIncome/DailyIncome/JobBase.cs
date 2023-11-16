@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace DailyIncome
 {
     public abstract class JobBase : Job, IJob
     {
+        public override string CityName { get; set; }
+
         public JobBase(string cityName) : base(cityName)
         {
         }
@@ -27,9 +24,8 @@ namespace DailyIncome
 
         public abstract Statistics GetStatistics();
 
-        public void ShowWages()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void ShowWages();
+
+        public abstract void ShowStatistics();
     }
 }

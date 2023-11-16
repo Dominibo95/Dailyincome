@@ -13,5 +13,7 @@
         void ShowWages();
 
         Statistics GetStatistics();
+
+        void ShowStatistics();
     }
 }
