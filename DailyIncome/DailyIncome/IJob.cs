@@ -2,16 +2,16 @@
 {
     public interface IJob
     {
-        int JobId { get; }
+        string CityName { get; set; }
 
-        //dodaje obiekt task do obiektu job 
-        void AddTask();
+        void AddWage(double Wage);
 
+        void AddWage(string Wage);
 
+        void AddTip(double Wage);
 
+        void ShowWages();
 
-
-       // event JobAddedDelegate JobAdded;
-        Statistics GetStatistics { get; }
+        Statistics GetStatistics();
     }
 }

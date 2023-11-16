@@ -6,10 +6,10 @@ namespace DailyIncome
     {
 
         //Job with lowest Wage
-        public double MinWagePerJob { get; private set; }
+        public double MinWagePerDay { get; private set; }
 
         // job with highest wage 
-        public double MaxWagePerJob { get; private set; }
+        public double MaxWagePerDay { get; private set; }
 
         public double Sum { get; private set; }
 
@@ -24,15 +24,15 @@ namespace DailyIncome
         public Statistics()
         {
             this.Sum = 0;
-            this.MaxWagePerJob = double.MinValue;
-            this.MinWagePerJob = double.MaxValue;
+            this.MaxWagePerDay = double.MinValue;
+            this.MinWagePerDay = double.MaxValue;
         }
 
-        public void AddJob(double job)
+        public void AddWage(double wage)
         {
-            this.Sum += job;
-            this.MinWagePerJob = Math.Min(job, this.MinWagePerJob);
-            this.MaxWagePerJob = Math.Max(job, this.MaxWagePerJob);
+            this.Sum += wage;
+            this.MinWagePerDay = Math.Min(wage, this.MinWagePerDay);
+            this.MaxWagePerDay = Math.Max(wage, this.MaxWagePerDay);
         }
     }
 }
