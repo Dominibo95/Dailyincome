@@ -24,7 +24,7 @@ while (!EndApp)
             break;
 
         case "2":
-            //      AddGradesToTxtFile();
+            AddWageToTxtFile();
             break;
 
         case "X":
@@ -72,6 +72,24 @@ static void AddWagesToMemory()
     else
     {
         WritelineColor(ConsoleColor.Red, "City Name can't be empty ");
+        AddWagesToMemory();
+    }
+}
+
+static void AddWageToTxtFile()
+{
+    string cityName = GetValueFromUser("Please insert city Name: ");
+    if (!string.IsNullOrEmpty(cityName))
+    {
+        var job = new JobInFile(cityName);
+        job.WageAdded += WageAdded;
+        EnterWage(job);
+        job.ShowStatistics();
+    }
+    else
+    {
+        WritelineColor(ConsoleColor.Red, "City Name can't be empty ");
+        AddWageToTxtFile();
     }
 }
 
@@ -79,7 +97,7 @@ static void EnterWage(IJob job)
 {
     while (true)
     {
-        WritelineColor(ConsoleColor.Yellow, $"Enter Value of  Wage for city: {job.CityName} or q to exit");
+        WritelineColor(ConsoleColor.Yellow, $"Enter  Wage to add for city: {job.CityName} or q to exit");
         var input = Console.ReadLine();
         if (input == "q" || input == "Q")
         {
