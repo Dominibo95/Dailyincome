@@ -1,14 +1,16 @@
-﻿namespace DailyIncome
+﻿using static DailyIncome.JobBase;
+
+namespace DailyIncome
 {
     public interface IJob
     {
         string CityName { get; set; }
 
-        void AddWage(double Wage);
+        void AddWage(double wage);
 
-        void AddWage(string Wage);
+        void AddWage(string wage);
 
-        void AddTip(double Wage);
+        event WageAddedDelegate WageAdded;
 
         void ShowWages();
 

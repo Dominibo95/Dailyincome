@@ -1,48 +1,60 @@
-﻿namespace DailyIncome
+﻿
+using System.Text;
+
+namespace DailyIncome
 {
     public class JobInMemory : JobBase
     {
         private List<double> wages;
-        private string cityName;
-
-        public override string CityName
-        {
-            get
-            {
-                return $"{char.ToUpper(cityName[0])}{cityName.Substring(1, cityName.Length - 1).ToLower()}";
-            }
-            set
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    cityName = "Dublin";
-                }
-            }
-        }
+        public override event WageAddedDelegate WageAdded;
 
         public JobInMemory(string cityName) : base(cityName)
         {
             wages = new List<double>();
         }
 
-        public override void AddWage(double Wage)
+        public override void AddWage(double wage)
         {
-            throw new NotImplementedException();
+            if (wage > 0)
+            {
+                wages.Add(wage);
+                if (WageAdded != null)
+                {
+                    WageAdded(this, new EventArgs());
+                }
+            }
+            else
+            {
+                throw new ArgumentException($"Invalid argument: {nameof(wage)}");
+            }
         }
 
         public override Statistics GetStatistics()
         {
-            throw new NotImplementedException();
-        }
+            var result = new Statistics();
 
-        public override void ShowStatistics()
-        {
-            throw new NotImplementedException();
+            foreach (var wage in wages)
+            {
+                result.AddWage(wage);
+            }
+            return result;
         }
 
         public override void ShowWages()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder($" In City {this.CityName} your wages was: ");
+            for (int i = 0; i < wages.Count; i++)
+            {
+                if (i == wages.Count - 1)
+                {
+                    sb.Append($"{wages[i]}.");
+                }
+                else
+                {
+                    sb.Append($"{wages[i]}; ");
+                }
+            }
+            Console.WriteLine($"\n{sb}");
         }
     }
 }
