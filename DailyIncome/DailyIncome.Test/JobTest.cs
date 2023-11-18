@@ -6,12 +6,11 @@
         public void ShouldReturnCorrectSumWhenAddDifferentType()
         {
             var job = new JobInMemory("Dublin");
-            //setup
+
             job.AddWage("200");
             job.AddWage(20);
             job.AddWage("20,0");
-            
-            //act
+
 
             var statistics = job.GetStatistics();
 

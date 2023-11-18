@@ -1,6 +1,4 @@
-﻿
-using DailyIncome;
-using System.Text.Json.Serialization;
+﻿using DailyIncome;
 
 WritelineColor(ConsoleColor.Magenta, "Welcome in Daily Wages Count System!");
 

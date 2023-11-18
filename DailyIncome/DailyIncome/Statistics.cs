@@ -1,14 +1,10 @@
-﻿using System.Diagnostics;
-
-namespace DailyIncome
+﻿namespace DailyIncome
 {
     public class Statistics
     {
 
-        //Job with lowest Wage
         public double MinWagePerDay { get; private set; }
 
-        // job with highest wage 
         public double MaxWagePerDay { get; private set; }
 
         public double Sum { get; private set; }

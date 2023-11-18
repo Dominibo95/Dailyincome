@@ -1,7 +1,4 @@
-﻿
-using System.Diagnostics;
-
-namespace DailyIncome
+﻿namespace DailyIncome
 {
     public abstract class JobBase : Job, IJob
     {
@@ -25,10 +22,6 @@ namespace DailyIncome
             else if (char.TryParse(wage, out char wageIsChar))
             {
                 this.AddWage(wageIsChar);
-            }
-            else if (float.TryParse(wage, out float wageIsFloat))
-            {
-                this.AddWage(wageIsFloat);
             }
             else
             {
