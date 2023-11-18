@@ -8,8 +8,8 @@ namespace DailyIncome
         private string fullFileName;
 
         public JobInFile(string cityName) : base(cityName)
-        {
-            fullFileName = String.Format("{0:yyyy-MM-dd}__{1}", DateTime.Now, cityName);
+        {   
+            fullFileName = String.Format("{0:yyyy-MM-dd}__{1}", DateTime.Now, cityName + ".txt" );
         }
 
         public override event WageAddedDelegate WageAdded;
